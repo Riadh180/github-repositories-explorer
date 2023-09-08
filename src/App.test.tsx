@@ -1,3 +1,4 @@
+import React from 'react';
 import { RenderResult, render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MockedProvider } from '@apollo/client/testing';
 import { GetUsersDocument } from './generated/graphql';
