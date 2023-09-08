@@ -10,6 +10,8 @@ type ErrorAlertProps = {
   message: string;
 };
 
-const ErrorAlert: React.FC<ErrorAlertProps> = ({ message }) => <StyledAlert severity="error">Error: {message}</StyledAlert>;
+const ErrorAlert: React.FC<ErrorAlertProps> = ({ message }) => (
+  <StyledAlert severity="error">Error: {message}</StyledAlert>
+);
 
 export default ErrorAlert;
