@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.8",
+    "@mui/lab": "^5.0.0-alpha.143",
+    "@mui/material": "^5.14.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,23 +16,23 @@
     "@types/node": "^16.18.48",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "eslint-plugin-styled-components-a11y": "^2.1.31",
+    "graphql": "^16.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^6.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "cypress run --headed --no-exit"
   },
   "browserslist": {
     "production": [
@@ -38,6 +44,34 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "cypress": "^13.1.0",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run test",
+      "git add"
     ]
   }
 }

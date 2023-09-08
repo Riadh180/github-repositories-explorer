@@ -1,0 +1,13 @@
+query GetUsers($query: String!) {
+  search(query: $query, type: USER, first: 5) {
+    userCount
+    edges {
+      node {
+        ... on User {
+          login
+          id
+        }
+      }
+    }
+  }
+}
