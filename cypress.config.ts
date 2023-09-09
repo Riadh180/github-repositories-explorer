@@ -1,12 +1,9 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    baseUrl: 'http://localhost:3000',
+    baseUrl:
+      'https://github-repositories-explorer-aslw36wqq-riadh180.vercel.app',
     specPattern: 'cypress/integration/**/*.cy.ts',
   },
-  
 });

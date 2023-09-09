@@ -33,6 +33,7 @@
     "codegen": "graphql-codegen --config codegen.yml",
     "cypress:open": "npx cypress open",
     "cypress:run": "cypress run --headed --no-exit",
+    "cypress:run:headless": "cypress run",
     "prepare": "husky install"
   },
   "browserslist": {
