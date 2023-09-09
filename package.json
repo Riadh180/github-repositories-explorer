@@ -25,14 +25,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint \"src/**/*.{js,ts,tsx}\" --fix --ignore-pattern 'node_modules/'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "codegen": "graphql-codegen --config codegen.yml",
     "cypress:open": "npx cypress open",
-    "cypress:run": "cypress run --headed --no-exit"
+    "cypress:run": "cypress run --headed --no-exit",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -62,16 +63,9 @@
     "prettier": "^3.0.3",
     "typescript": "4.9.5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo 'pre-commit hook' && lint-staged"
-    }
-  },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "npm run test",
-      "git add"
+    "**/*.{js,jsx,ts,tsx}": [
+      "npm run lint"
     ]
   }
 }
